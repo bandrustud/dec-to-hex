@@ -1,0 +1,22 @@
+{
+  "name": "dec-to-hex",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/bandrustud/dec-to-hex#readme",
+  "bugs": {
+    "url": "https://github.com/bandrustud/dec-to-hex/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bandrustud/dec-to-hex.git"
+  },
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^44.5.1"
+  }
+}

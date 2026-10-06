@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta 
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'"
+        />
+    <meta 
+        http-equiv="X-Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'"
+    />
+    <title>Document</title>
+    <style>
+        :root {
+            --bg-color: #220218;
+            --second-color: #bebebe;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--second-color);
+        }
+        .flexdiv {
+            margin: auto;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .textfield {
+            white-space: initial;
+            width: 50%;
+            margin: auto;
+            background-color: var(--second-color);
+            color: var(--bg-color);
+            font-size: 24px;
+            font-family: monospace;
+            word-wrap: break-word;
+            min-height: 45px;
+            padding: 0px;
+            text-align: center;
+        }
+        button {
+            border-left: 10px solid var(--second-color);
+            border-right: 10px solid var(--second-color);
+            border-top: 10px solid var(--second-color);
+            border-bottom: 10px solid var(--second-color);
+            width: 100px;
+            height: 75px;
+            background-color: var(--bg-color);
+            color: var(--second-color);
+            font-size: larger;
+            text-decoration: double;
+        }
+        button:hover {
+            border-left: 10px dotted var(--second-color);
+            border-right: 10px dotted var(--second-color);
+            border-top: 10px dotted var(--second-color);
+            border-bottom: 10px dotted var(--second-color);
+            cursor: pointer;
+        }
+        .triangle {
+            width: 0;
+            height: 0;
+            border-top: 10px solid var(--second-color);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+        }
+    </style>
+</head>
+<body>
+    <div class="flexdiv">
+        <input autofocus type="number" id="userin" class="textfield" value="15">
+        <p class="triangle"></p>
+        <div>
+            <button onclick="convertButton();">átváltás</button>      
+        </div>
+        <p class="triangle"></p>
+        <div  class="textfield" id="output">
+        </div>
+    </div>
+</body>
+<script>
+    const inputField = document.getElementById("userin");
+    const outputField = document.getElementById("output");
+
+    function convertButton() {
+        try {
+            var input = parseInt(inputField.value);
+            if (isNaN(input)) {
+                outputField.innerHTML = "-";
+                return
+            }
+        } catch (e) {
+            outputField.innerHTML = e;
+        }
+        if (input == 0) {
+                outputField.innerHTML = "0"
+                return
+            } else {
+                try {
+                    outputField.innerHTML = input.toString(16);
+                } catch (e) {
+                    outputField.innerHTML = e;
+            }
+        }        
+    }
+</script>
+</html>
